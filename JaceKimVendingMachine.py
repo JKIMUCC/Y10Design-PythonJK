@@ -38,6 +38,6 @@ while x == True:
 	else:
 		print ("This is not a valid choice")
 
-	if change < 2.5: 
+	if change < 1.25: 
 		print("You do not have sufficient funds anymore. Please come back with more money.")
 		x = False
