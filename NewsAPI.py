@@ -3,6 +3,9 @@ import pprint
 import os
 import json
 
+title = []
+url1 = []
+iurl = []
 
 def writeHTML(data):
 			hdata = str(data)
@@ -146,7 +149,7 @@ def writeHTML(data):
 			}
 			.news{
 				background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("bg2.jpg");
-				height: 510px;
+				height: 420px;
 				width: fill;
 			}
 			.sidebar a:hover {
@@ -215,19 +218,19 @@ def writeHTML(data):
 
 			myfile.write(html_s)
 			myfile.write('<h1> Your Results: </h1>\n')
-			myfile.write('<div class="news >')
+			myfile.write('<div class="news">\n')
 
 			for i in range(3):
-                myfile.write('	<a href="' + url[i] + '">\n')
-                myfile.write('		<div class="card' + str(i+1) + '">\n')
-                myfile.write('			<img src="' + iurl[i] + '"alt="Image1" style="width:100%; height: 105%">\n')
-                myfile.write('			<div class="container">\n')
-                myfile.write('		 		<h4><b>' + title[i] + '</b></h4> \n')
-                myfile.write('		  	</div>\n')
-                myfile.write('		</div>\n')
-                myfile.write('	</a>\n')
+				myfile.write('	<a href="' + url1[i] + '">\n')
+				myfile.write('		<div class="card' + str(i+1) + '">\n')
+				myfile.write('			<img src="' + iurl[i] + '"alt="Image1" style="width:100%; height: 105%">\n')
+				myfile.write('			<div class="container">\n')
+				myfile.write('		 		<h4><b>' + title[i] + '</b></h4> \n')
+				myfile.write('		  	</div>\n')
+				myfile.write('		</div>\n')
+				myfile.write('	</a>\n')
 
-            myfile.write('</div>\n')
+			myfile.write('</div>\n')
 			myfile.write('</body>\n')
 			myfile.write('</html>')
 
@@ -242,7 +245,7 @@ print("2: Search by topic")
 print("3: Search by date published")
 print("4: Search by news source url")
 
-while True:[]
+while True:
 	choice = int(input("What would you like to do? \n"))
 
 	if choice == 1:
@@ -274,20 +277,11 @@ while True:[]
 		response = requests.get(url)
 		sjson = response.json()
 
-		title = []
-		url = []
-		iurl = []
-
-		for i in range(5):
+		for i in range(3):
 			title.append(sjson['articles'][i]['title'])
-			url.append(sjson['articles'][i]['url'])
+			url1.append(sjson['articles'][i]['url'])
 			iurl.append(sjson['articles'][i]['urlToImage'])
 
-
-
-
-		response_json = response.json()
-		p = pprint.pprint(response_json)
 		writeHTML(title[1])
 		break
 
@@ -300,10 +294,12 @@ while True:[]
 			'sortBy=popularity&'
 			'apiKey=8320ac2931434c4fb2dc3f02ed23d8ca')
 
-		response = requests.request("GET", url)
-		response_json = response.json()
-		p = pprint.pprint(response_json)
-		writeHTML(p)
+		for i in range(3):
+			title.append(sjson['articles'][i]['title'])
+			url1.append(sjson['articles'][i]['url'])
+			iurl.append(sjson['articles'][i]['urlToImage'])
+
+		writeHTML(title[1])
 		break
 
 
@@ -317,10 +313,12 @@ while True:[]
 			'sortBy=popularity&'
 			'apiKey=8320ac2931434c4fb2dc3f02ed23d8ca')
 	
-		response = requests.request("GET", url)
-		response_json = response.json()
-		p = pprint.pprint(response_json)
-		writeHTML(p)
+		for i in range(3):
+			title.append(sjson['articles'][i]['title'])
+			url1.append(sjson['articles'][i]['url'])
+			iurl.append(sjson['articles'][i]['urlToImage'])
+
+		writeHTML(title[3])
 		break
 
 	else:
