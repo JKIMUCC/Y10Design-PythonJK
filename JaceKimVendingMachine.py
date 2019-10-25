@@ -13,8 +13,7 @@ print("6. Fruit by the Foot - $1.25")
 payment = int(input("How much money are you inputting? \n"))
 
 change = (payment)
-while x == True:
-
+while x == True	
 	choice = int(input("What do you want to purchase? \n"))
 
 	if choice == 1:

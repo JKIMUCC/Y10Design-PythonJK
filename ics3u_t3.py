@@ -7,10 +7,10 @@
 # Put down some options for the user to choose from...
 
 
-print("1. Weather")
-print("2. Time")
-print("3. Schedule \n")
-print(" Choose one \n")
+print("1. Cookies")
+print("2. Coke")
+print("3. Sprite \n")
+print(" What would you like to buy \n")
 
 
 mood = int(input("What do you want to know? \n"))
