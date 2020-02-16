@@ -37,11 +37,6 @@ while True:
 			'from=2019-10-22&'
 			'sortBy=popularity&'
 			'apiKey=8320ac2931434c4fb2dc3f02ed23d8ca')
-		parameters = {
-		'q': 'big data',
-		'pageSize': 20,  
-		'apiKey': secret 
-		}
 
 		response = requests.get(url, params=parameters)
 		response_json = response.json()
@@ -56,11 +51,7 @@ while True:
 			'from='+search+'&'
 			'sortBy=popularity&'
 			'apiKey=8320ac2931434c4fb2dc3f02ed23d8ca')
-		parameters = {
-		'q': 'big data',
-		'pageSize': 20,  
-		'apiKey': secret 
-		}
+
 
 		response = requests.get(url, params=parameters)
 		response_json = response.json()

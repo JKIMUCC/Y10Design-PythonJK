@@ -249,18 +249,19 @@ while True:
 	choice = int(input("What would you like to do? \n"))
 
 	if choice == 1:
-		
+		url = ('https://newsapi.org/v2/top-headlines?'
+			'country=us&'	
+			'apiKey=8320ac2931434c4fb2dc3f02ed23d8ca')
+			
+		response = requests.get(url)
+		sjson = response.json()
 
-		def main():
-			url = ('https://newsapi.org/v2/top-headlines?'
-				'country=us&'
-				'apiKey=8320ac2931434c4fb2dc3f02ed23d8ca')
+		for i in range(3):
+			title.append(sjson['articles'][i]['title'])
+			url1.append(sjson['articles'][i]['url'])
+			iurl.append(sjson['articles'][i]['urlToImage'])
 
-			response = requests.get(url)
-			response_json = response.json()
-			p = pprint.pprint(response_json)
-			writeHTML(p)
-		main()
+		writeHTML(title[1])
 		break
 
 	elif choice == 2:
@@ -294,6 +295,9 @@ while True:
 			'sortBy=popularity&'
 			'apiKey=8320ac2931434c4fb2dc3f02ed23d8ca')
 
+		response = requests.get(url)
+		sjson = response.json()
+
 		for i in range(3):
 			title.append(sjson['articles'][i]['title'])
 			url1.append(sjson['articles'][i]['url'])
@@ -313,12 +317,15 @@ while True:
 			'sortBy=popularity&'
 			'apiKey=8320ac2931434c4fb2dc3f02ed23d8ca')
 	
+		response = requests.get(url)
+		sjson = response.json()
+
 		for i in range(3):
 			title.append(sjson['articles'][i]['title'])
 			url1.append(sjson['articles'][i]['url'])
 			iurl.append(sjson['articles'][i]['urlToImage'])
 
-		writeHTML(title[3])
+		writeHTML(title[1])
 		break
 
 	else:
